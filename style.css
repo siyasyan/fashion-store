@@ -350,8 +350,58 @@ nav a:hover::after {
 .checkout-btn:hover {
   background: #333;
 }
+/* ADD TO CART BUTTON */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #000, #333);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
+/* Hover effect */
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
 
+/* Click animation */
+.add-to-cart-btn:active {
+  transform: scale(0.95);
+}
+
+/* AFTER ADDING TO CART */
+.add-to-cart-btn.added {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+  cursor: default;
+  box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
+}
+
+/* Checkmark animation */
+.add-to-cart-btn.added::after {
+  content: "✓";
+  position: absolute;
+  right: 16px;
+  font-size: 16px;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 /* shop logistics*/
 .shop-header {
   padding: 50px 80px;
@@ -615,4 +665,5 @@ nav a:hover::after {
   }
 
 }
+
 
