@@ -248,25 +248,52 @@ const orderTotal = document.getElementById("orderTotal");
 const placeOrderBtn = document.getElementById("placeOrderBtn");
 const orderMsg = document.getElementById("orderMsg");
 
+if (placeOrderBtn) {
+  placeOrderBtn.addEventListener("click", () => {
+    const name = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const pincode = document.getElementById("pincode").value.trim();
+
+    if (!name || !email || !address || !city || !pincode) {
+      orderMsg.style.color = "red";
+      orderMsg.innerText = "❌ Please fill in all required details.";
+      return;
+    }
+
+  
+    localStorage.removeItem("cart");
+    orderMsg.style.color = "green";
+    orderMsg.innerText = "🎉 Order placed successfully!";
+  });
+}
+
 if (orderItems && orderTotal) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let total = 0;
 
-  cart.forEach(item => {
-    const div = document.createElement("div");
-    div.innerText = `${item.name} × ${item.quantity} — ₹${item.price * item.quantity}`;
-    orderItems.appendChild(div);
+  if (cart.length === 0) {
+    orderItems.innerHTML = "<p>Your cart is empty 🛒</p>";
+    orderTotal.innerText = "0";
 
-    total += item.price * item.quantity;
-  });
+    if (placeOrderBtn) {
+      placeOrderBtn.disabled = true;
+      placeOrderBtn.style.background = "#ccc";
+      placeOrderBtn.style.cursor = "not-allowed";
+    }
+  } else {
+    cart.forEach(item => {
+      const div = document.createElement("div");
+      div.innerText = `${item.name} × ${item.quantity} — ₹${item.price * item.quantity}`;
+      orderItems.appendChild(div);
 
-  orderTotal.innerText = total;
+      total += item.price * item.quantity;
+    });
+
+    orderTotal.innerText = total;
+  }
 }
 
-if (placeOrderBtn) {
-  placeOrderBtn.addEventListener("click", () => {
-    localStorage.removeItem("cart"); // clear cart
-    orderMsg.innerText = "🎉 Order placed successfully!";
-  });
-}
+
 
