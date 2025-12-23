@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout | FashionStore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>FashionStore</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="checkout-container">
+
+  <h2>Checkout</h2>
+
+  <div class="checkout-grid">
+
+    <!-- SHIPPING FORM -->
+    <div class="checkout-form">
+      <h3>Shipping Details</h3>
+
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Address" required>
+      <input type="text" placeholder="City" required>
+      <input type="text" placeholder="Pincode" required>
+
+      <button id="placeOrderBtn">Place Order</button>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="checkout-summary">
+      <h3>Order Summary</h3>
+      <div id="orderItems"></div>
+      <p class="total">Total: ₹<span id="orderTotal">0</span></p>
+    </div>
+
+  </div>
+
+  <p id="orderMsg" class="order-msg"></p>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

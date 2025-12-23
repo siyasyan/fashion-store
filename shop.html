@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Fashion Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <h1>FashionStore</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li>
+                  <a href="cart.html">
+                    Cart 🛒(<span id="cartCount">0</span>)
+                  </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SHOP HEADER -->
+    <section class="shop-header">
+        <h2>Shop All Products</h2>
+        <p>Explore our complete fashion collection</p>
+    </section>
+
+<!-- SEARCH + FILTER BAR -->
+<div class="shop-controls">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search products..."
+    >
+
+<select id="sortPrice" class="sort-select">
+    <option value="default">Sort by</option>
+    <option value="low-high">Price: Low to High</option>
+    <option value="high-low">Price: High to Low</option>
+</select>
+
+
+    <div class="category-filter">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="jackets">Jackets</button>
+        <button class="filter-btn" data-category="winter">Winter</button>
+        <button class="filter-btn" data-category="streetwear">Streetwear</button>
+        <button class="filter-btn" data-category="jeans">Jeans</button>
+
+    </div>
+</div>
+
+
+<!-- SHOP PRODUCTS SECTION -->
+<section class="products shop-products">
+
+    <div class="product-container">
+
+        <div class="product-card" data-category="jackets">
+            <img src="images/P1.jpg" alt="Brown Leather Jacket">
+            <h3>Brown Leather Jacket</h3>
+            <p>₹2,199</p>
+            <button onclick="addToCart('Brown Leather Jacket', 2199)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="winter">
+            <img src="images/P2.jpg" alt="Essential Sweater">
+            <h3>Essential Sweater</h3>
+            <p>₹1,499</p>
+            <button onclick="addToCart('Essential Sweater', 1499)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="winter">
+            <img src="images/P3.jpg" alt="Premium Black Hoodie">
+            <h3>Premium Black Hoodie</h3>
+            <p>₹1,699</p>
+            <button onclick="addToCart('Premium Black Hoodie', 1699)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="jeans">
+            <img src="images/P4.jpg" alt="Straight Fit Jeans">
+            <h3>Straight Fit Jeans</h3>
+            <p>₹1,899</p>
+            <button onclick="addToCart('Straight Fit Jeans', 1899)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="winter">
+            <img src="images/P5.jpg" alt="Women Long Coat">
+            <h3>Women Long Coat</h3>
+            <p>₹3,299</p>
+            <button onclick="addToCart('Women Long Coat', 3299)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="streetwear">
+            <img src="images/P6.jpg" alt="Casual Checked Shirt">
+            <h3>Casual Checked Shirt</h3>
+            <p>₹1,199</p>
+            <button onclick="addToCart('Casual Checked Shirt', 1199)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="streetwear">
+            <img src="images/P7.jpg" alt="Streetwear Sweatshirt">
+            <h3>Streetwear Sweatshirt</h3>
+            <p>₹1,599</p>
+            <button onclick="addToCart('Streetwear Sweatshirt', 1599)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-category="streetwear">
+            <img src="images/P8.jpg" alt="High-Waist Trousers">
+            <h3>High-Waist Trousers</h3>
+            <p>₹1,899</p>
+            <button onclick="addToCart('High-Waist Trousers', 1899)">Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<p id="noProductsMsg" class="no-products-msg">
+  No products found 😔
+</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

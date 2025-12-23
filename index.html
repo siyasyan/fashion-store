@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <h1>FashionStore</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart 🛒(<span id="cartCount">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>New Winter Collection</h2>
+            <p>Trendy • Comfortable • Affordable</p>
+            <a href="shop.html" class="hero-btn">Shop Now</a>
+        </div>
+    </section>
+
+  <!-- FEATURED COLLECTION / GALLERY -->
+<section class="featured-gallery fade-in">
+    <h2>Featured Collection</h2>
+
+    <div class="gallery-container">
+
+        <div class="gallery-item">
+            <img src="images/P1.jpg" alt="Leather Jackets">
+            <div class="overlay">
+                <h3>Winter Jackets</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/P5.jpg" alt="Long Coats">
+            <div class="overlay">
+                <h3>Elegant Coats</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/P7.jpg" alt="Streetwear">
+            <div class="overlay">
+                <h3>Streetwear Style</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="shop.html" class="view-collection-btn">View Full Collection</a>
+</section>
+
+<section class="why-us fade-in">
+    <h2>Why Choose Us</h2>
+    <div class="why-container">
+        <div class="why-card">✔ Premium Quality</div>
+        <div class="why-card">✔ Affordable Prices</div>
+        <div class="why-card">✔ Trend-Driven Designs</div>
+        <div class="why-card">✔ Easy Shopping Experience</div>
+    </div>
+</section>
+
+<section class="cta fade-in">
+    <h2>Stay Updated</h2>
+    <p>Get the latest fashion trends & offers</p>
+
+    <div class="cta-box">
+        <input type="email" id="subscribeEmail" placeholder="Enter your email">
+        <button id="subscribeBtn">Subscribe</button>
+    </div>
+
+    <p id="subscribeMsg" class="subscribe-msg"></p>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
