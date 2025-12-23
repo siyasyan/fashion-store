@@ -2,22 +2,27 @@
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(productName, productPrice) {
-    let existingProduct = cart.find(item => item.name === productName);
+function addToCart(button, name, price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (existingProduct) {
-        existingProduct.quantity += 1;
-    } else {
-        cart.push({
-            name: productName,
-            price: productPrice,
-            quantity: 1
-        });
-    }
+  const existingItem = cart.find(item => item.name === name);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
-    alert(productName + " added to cart!");
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name, price, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // 🎨 BUTTON UI CHANGE
+  button.classList.add("added");
+  button.innerText = "Added";
+
+  // Optional: prevent multiple clicks immediately
+  button.disabled = true;
+
+  updateCartCount();
 }
 
 // fade logistics in index
@@ -355,6 +360,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
