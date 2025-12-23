@@ -267,24 +267,68 @@ const orderMsg = document.getElementById("orderMsg");
 
 if (placeOrderBtn) {
   placeOrderBtn.addEventListener("click", () => {
+
     const name = document.getElementById("fullName").value.trim();
     const email = document.getElementById("email").value.trim();
     const address = document.getElementById("address").value.trim();
     const city = document.getElementById("city").value.trim();
     const pincode = document.getElementById("pincode").value.trim();
 
+    // 🔹 Validation patterns
+    const namePattern = /^[A-Za-z ]{3,}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const cityPattern = /^[A-Za-z ]+$/;
+    const pincodePattern = /^[0-9]{6}$/;
+
+    // 🔹 Empty check
     if (!name || !email || !address || !city || !pincode) {
-      orderMsg.style.color = "red";
-      orderMsg.innerText = "❌ Please fill in all required details.";
+      showError("Please fill in all required details.");
       return;
     }
 
-  
+    // 🔹 Name check
+    if (!namePattern.test(name)) {
+      showError("Name should contain only letters (min 3 characters).");
+      return;
+    }
+
+    // 🔹 Email check
+    if (!emailPattern.test(email)) {
+      showError("Please enter a valid email address.");
+      return;
+    }
+
+    // 🔹 Address check
+    if (address.length < 10) {
+      showError("Address must be at least 10 characters.");
+      return;
+    }
+
+    // 🔹 City check
+    if (!cityPattern.test(city)) {
+      showError("City should contain only letters.");
+      return;
+    }
+
+    // 🔹 Pincode check
+    if (!pincodePattern.test(pincode)) {
+      showError("Pincode must be exactly 6 digits.");
+      return;
+    }
+
+    // ✅ SUCCESS
     localStorage.removeItem("cart");
     orderMsg.style.color = "green";
     orderMsg.innerText = "🎉 Order placed successfully!";
   });
 }
+
+// 🔹 Helper function
+function showError(message) {
+  orderMsg.style.color = "red";
+  orderMsg.innerText = "❌ " + message;
+}
+
 
 if (orderItems && orderTotal) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -311,6 +355,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
