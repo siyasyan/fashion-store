@@ -37,7 +37,7 @@ nav a {
 /* Hero Banner */
 .hero {
   height: 60vh;
-  background: url('../fashion-store/images/banner.jpg') center/cover no-repeat;
+  background: url('banner.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   padding-left: 80px;
@@ -590,4 +590,5 @@ nav a:hover::after {
   .checkout-container {
     padding: 20px;
   }
+
 }
