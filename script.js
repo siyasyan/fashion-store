@@ -119,6 +119,8 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
+  
+    updateAddToCartButtons();
 }
 
 if (window.location.href.includes("cart.html")) {
@@ -135,6 +137,10 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateAddToCartButtons();
+});
 
 //quality control functions
 
@@ -384,6 +390,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
