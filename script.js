@@ -122,7 +122,9 @@ function removeFromCart(index) {
 
 if (window.location.href.includes("cart.html")) {
     displayCart();
+  updateAddToCartButtons();
 }
+
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -390,6 +392,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
