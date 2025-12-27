@@ -4,7 +4,6 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart(button, name, price) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
   const existingItem = cart.find(item => item.name === name);
 
   if (existingItem) {
@@ -15,15 +14,13 @@ function addToCart(button, name, price) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  // 🎨 BUTTON UI CHANGE
+  // BUTTON UI UPDATE
   button.classList.add("added");
-  button.innerText = "Added";
-
-  // Optional: prevent multiple clicks immediately
+  button.innerText = "Added ✓";
   button.disabled = true;
 
   updateCartCount();
-  updateAddToCartButtons(); 
+  updateAddToCartButtons();
 }
 
 // fade logistics in index
@@ -390,6 +387,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
