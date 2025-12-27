@@ -12,20 +12,18 @@ function toggleCartItem(button, name, price) {
     cart.splice(itemIndex, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // 🎨 Reset button UI
+    // Reset button UI instantly
     button.classList.remove("added");
     button.innerText = "Add to Cart";
-    button.disabled = false;
 
   } else {
     // ✅ Add item if not in cart
     cart.push({ name, price, quantity: 1 });
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // 🎨 Update button UI
+    // Update button UI instantly
     button.classList.add("added");
     button.innerText = "Added ✓";
-    button.disabled = true;
   }
 
   updateCartCount();
@@ -400,6 +398,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
