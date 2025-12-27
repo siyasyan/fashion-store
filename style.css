@@ -383,14 +383,14 @@ nav a:hover::after {
   box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
 }
 
-/* Checkmark animation */
+/* Checkmark animation 
 .add-to-cart-btn.added::after {
   content: "✓";
   position: absolute;
   right: 16px;
   font-size: 16px;
   animation: pop 0.3s ease;
-}
+}*/
 
 @keyframes pop {
   0% {
@@ -665,6 +665,7 @@ nav a:hover::after {
   }
 
 }
+
 
 
 
