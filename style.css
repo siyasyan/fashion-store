@@ -368,7 +368,12 @@ nav a:hover::after {
 .add-to-cart-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background: #111;
+  color: white;
+  transform: translateY(-2px);
+  transition: 0.3s ease;
 }
+
 
 /* Click animation */
 .add-to-cart-btn:active {
@@ -665,6 +670,7 @@ nav a:hover::after {
   }
 
 }
+
 
 
 
