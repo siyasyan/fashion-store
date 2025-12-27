@@ -2,25 +2,33 @@
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(button, name, price) {
+function toggleCartItem(button, name, price) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existingItem = cart.find(item => item.name === name);
 
-  if (existingItem) {
-    existingItem.quantity += 1;
+  const itemIndex = cart.findIndex(item => item.name === name);
+
+  if (itemIndex !== -1) {
+    // ❌ Remove item if already in cart
+    cart.splice(itemIndex, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // 🎨 Reset button UI
+    button.classList.remove("added");
+    button.innerText = "Add to Cart";
+    button.disabled = false;
+
   } else {
+    // ✅ Add item if not in cart
     cart.push({ name, price, quantity: 1 });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // 🎨 Update button UI
+    button.classList.add("added");
+    button.innerText = "Added";
+    button.disabled = true;
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  // BUTTON UI UPDATE
-  button.classList.add("added");
-  button.innerText = "Added ✓";
-  button.disabled = true;
-
   updateCartCount();
-  updateAddToCartButtons();
 }
 
 // fade logistics in index
@@ -392,6 +400,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
