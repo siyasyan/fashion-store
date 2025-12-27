@@ -24,7 +24,7 @@ function toggleCartItem(button, name, price) {
 
     // 🎨 Update button UI
     button.classList.add("added");
-    button.innerText = "Added";
+    button.innerText = "Added ✓";
     button.disabled = true;
   }
 
@@ -400,6 +400,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
