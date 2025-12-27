@@ -167,22 +167,25 @@ function updateAddToCartButtons() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const buttons = document.querySelectorAll(".add-to-cart-btn");
 
-  buttons.forEach(btn => {
-    const productName = btn.getAttribute("onclick").match(/'([^']+)'/)[1];
+  buttons.forEach(button => {
+    const productName = button.dataset.name;
+    const exists = cart.some(item => item.name === productName);
 
-    const isInCart = cart.some(item => item.name === productName);
-
-    if (isInCart) {
-      btn.classList.add("added");
-      btn.innerText = "Added";
-      btn.disabled = true;
+    if (exists) {
+      button.classList.add("added");
+      button.innerText = "Added ✓";
+      button.disabled = true;
     } else {
-      btn.classList.remove("added");
-      btn.innerText = "Add to Cart";
-      btn.disabled = false;
+      button.classList.remove("added");
+      button.innerText = "Add to Cart";
+      button.disabled = false;
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateAddToCartButtons();
+});
 
 
 // shop logistics
@@ -387,6 +390,7 @@ if (orderItems && orderTotal) {
     orderTotal.innerText = total;
   }
 }
+
 
 
 
